@@ -179,13 +179,13 @@ export async function main(ns) {
     const hackTime = ns.getHackTime(bestTarget)
     const growTime = ns.getGrowTime(bestTarget)
     const weakenTime = ns.getWeakenTime(bestTarget)
-
+    
     const growDelay = Math.max(0, weakenTime - growTime - 15 * 1000)
     const hackDelay = Math.max(0, growTime + growDelay - hackTime - 15 * 1000)
 
     const securityLevel = ns.getServerSecurityLevel(bestTarget)
     const money = ns.getServerMoneyAvailable(bestTarget)
-
+    /**TODO change here **/
     let action = 'weaken'
     if (securityLevel > serverMap.servers[bestTarget].minSecurityLevel + settings.minSecurityLevelOffset) {
       action = 'weaken'
